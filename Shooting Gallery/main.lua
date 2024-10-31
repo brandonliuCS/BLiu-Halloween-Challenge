@@ -2,7 +2,7 @@ function love.load()
     target = {}
     target.x = 300
     target.y = 300
-    target.radius = 50
+    target.radius = 25
 
     score = 0
     timer = 0
@@ -12,7 +12,8 @@ function love.load()
 
     sprites = {}
     sprites.sky = love.graphics.newImage('sprites/sky.png')
-    sprites.target = love.graphics.newImage('sprites/target.png')
+    sprites.target = love.graphics.newImage('sprites/unbroken.png')
+    sprites.smashed = love.graphics.newImage('sprites/smashed.png')
     sprites.crosshairs = love.graphics.newImage('sprites/crosshairs.png')
 
     mouseX = 0
@@ -66,6 +67,11 @@ function love.mousepressed(x, y, button, istouch, presses)
     if gameState == 2 then
         local hit = checkHit(x, y)
 
+        -- if hit then
+            -- draw smashed pumpkin at target.x and target.y
+            -- moveTarget()
+            -- set smashed pumpkin X and Y to new target.x and target.y
+
         if hit then
             if button == 1 then
                 score = score + 1
@@ -75,7 +81,7 @@ function love.mousepressed(x, y, button, istouch, presses)
                 score = score + 2
                 timer = timer - 1
             end
-
+            
             moveTarget()
         else
             if score > 0 then

@@ -123,8 +123,11 @@ function love.draw()
 end
 
 function love.keypressed(key)
-    if key == "space" then
+    if key == "s" then
         spawnZombie()
+    end
+    if key == "space" then
+        spawnBullet()
     end
 end
 
